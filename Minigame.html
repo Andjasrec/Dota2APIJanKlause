@@ -24,8 +24,8 @@
         let hero1 = heroesdata.data[(Math.floor(Math.random() * heroesdata.data.length))]
         let hero2 = heroesdata.data[(Math.floor(Math.random() * heroesdata.data.length))]
 
-        console.log(hero1)
-        console.log(hero2)
+        //console.log(hero1)
+        //console.log(hero2)
 
         //angepasstes array erschaffen
 
@@ -58,18 +58,50 @@
                 }
                 //let vergleichsvariable = hero1datas[Math.floor(Math.random() * 11)]
                 let vergleichsvariable = Object.keys(hero1datas)[Math.floor(Math.random() * 11)]
-                
-                
-                console.log("V: "+vergleichsvariable)
-                console.log("A: "+hero2datas[Math.floor(Math.random() * 11)])
 
-shjhxjkchyjkcjyxjc
-                console.log(hero1datas.length)
-                console.log(hero2datas.length)
+                //let hero2vergleichsvariable = hero2datas.indexof(vergleichsvariable)
+                let hero2vergleichsvariable= hero2datas[vergleichsvariable]
+                let hero1vergleichsvariable= hero1datas[vergleichsvariable]
 
+                console.log(vergleichsvariable)
+                console.log(hero1.localized_name+" "+hero1vergleichsvariable)
+                console.log(hero2.localized_name+" "+hero2vergleichsvariable)
+
+                // ineraktion mit user
+                document.getElementById("hero1").addEventListener//("click",entdscheidung)
+                document.getElementById("hero2").addEventListener//("click",entdscheidung)
+
+                //schleife zur wiederholung
+                function entdscheidung(){
+                    if(){
+
+                    }
+                }
+
+
+
+                //.catch(function (error) {
+                //console.log(error)
             }
     )
     </script>
+
+<h2>Wer hat die besseren Stats?</h2> 
+
+<h3>Wie Funktioniert das Spiel?</h3> 
+
+<p>Klicken sie einfach auf den Helden der ihres Wissens nach bessere Stats hat.</p>
+
+vergleichsvariable
+
+<button type="button" id="hero1">Heldenname1</button>
+<button type="button" id="hero2">Heldenname2</button>
+
+
+
+<p>Score: rechnereinbauen</p> 
+
+automatische erneuerung
 </body>
 
 </html>

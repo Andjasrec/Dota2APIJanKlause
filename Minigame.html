@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        //const darstellungFaktor = 10.0
+        //for(key in kurse) {
+        //let element = $("<div class='square'>"+key+":<br/>"+kurse[key]+"</div>").appendTo("body").css("width",kurse[key]*darstellungFaktor+"%").css("border","1px solid black")
+        //}
+
+        axios.get("https://api.opendota.com/api/heroStats")
+    .then(function (heroesdata) {
+        //console.log(heroesdata.data)
+
+        let hero1 = heroesdata.data[(Math.floor(Math.random() * heroesdata.data.length))]
+        let hero2 = heroesdata.data[(Math.floor(Math.random() * heroesdata.data.length))]
+
+        console.log(hero1)
+        console.log(hero2)
+
+        //angepasstes array erschaffen
+
+                const hero1datas = {
+                    "agigain": hero1.agi_gain,
+                    "strgain": hero1.str_gain,
+                    "intgain": hero1.int_gain,
+                    "basehealthregen": hero1.base_health_regen,
+                    "basemanaregen": hero1.base_mana_regen,
+                    "baseagi": hero1.base_mana_regen,
+                    "basestr": hero1.base_str,
+                    "baseint": hero1.base_int,
+                    "basehealth": hero1.base_health,
+                    "basemana": hero1.base_mana,
+                    "armor": hero1.base_armor,
+                }
+
+                const hero2datas = {
+                    "agigain": hero2.agi_gain,
+                    "strgain": hero2.str_gain,
+                    "intgain": hero2.int_gain,
+                    "basehealthregen": hero2.base_health_regen,
+                    "basemanaregen": hero2.base_mana_regen,
+                    "baseagi": hero2.base_mana_regen,
+                    "basestr": hero2.base_str,
+                    "baseint": hero2.base_int,
+                    "basehealth": hero2.base_health,
+                    "basemana": hero2.base_mana,
+                    "armor": hero2.base_armor,
+                }
+                //let vergleichsvariable = hero1datas[Math.floor(Math.random() * 11)]
+                let vergleichsvariable = Object.keys(hero1datas)[Math.floor(Math.random() * 11)]
+                
+                
+                console.log("V: "+vergleichsvariable)
+                console.log("A: "+hero2datas[Math.floor(Math.random() * 11)])
+
+shjhxjkchyjkcjyxjc
+                console.log(hero1datas.length)
+                console.log(hero2datas.length)
+
+            }
+    )
+    </script>
+</body>
+
+</html>

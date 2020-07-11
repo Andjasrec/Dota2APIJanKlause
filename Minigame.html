@@ -18,107 +18,110 @@
         //}
 
         axios.get("https://api.opendota.com/api/heroStats")
-    .then(function (heroesdata) {
-        //console.log(heroesdata.data)
+            .then(function (heroesdata) {
+                hauptfunction()
+                //console.log(heroesdata.data)
+                function hauptfunction() {
+                    let hero1 = heroesdata.data[(Math.floor(Math.random() * heroesdata.data.length))]
+                    let hero2 = heroesdata.data[(Math.floor(Math.random() * heroesdata.data.length))]
 
-        let hero1 = heroesdata.data[(Math.floor(Math.random() * heroesdata.data.length))]
-        let hero2 = heroesdata.data[(Math.floor(Math.random() * heroesdata.data.length))]
 
-       
-        //console.log(hero1)
-        //console.log(hero2)
+                    //console.log(hero1)
+                    //console.log(hero2)
 
-        //angepasstes array erschaffen
+                    //angepasstes array erschaffen
 
-                const hero1datas = {
-                    "agilitygain": hero1.agi_gain,
-                    "strengthgain": hero1.str_gain,
-                    "inteligentgain": hero1.int_gain,
-                    "basehealthregen": hero1.base_health_regen,
-                    "basemanaregen": hero1.base_mana_regen,
-                    "baseagility": hero1.base_mana_regen,
-                    "basestrength": hero1.base_str,
-                    "baseintelligent": hero1.base_int,
-                    "basehealth": hero1.base_health,
-                    "basemana": hero1.base_mana,
-                    "armor": hero1.base_armor,
+                    const hero1datas = {
+                        "agilitygain": hero1.agi_gain,
+                        "strengthgain": hero1.str_gain,
+                        "inteligentgain": hero1.int_gain,
+                        "basehealthregen": hero1.base_health_regen,
+                        "basemanaregen": hero1.base_mana_regen,
+                        "baseagility": hero1.base_mana_regen,
+                        "basestrength": hero1.base_str,
+                        "baseintelligent": hero1.base_int,
+                        "basehealth": hero1.base_health,
+                        "basemana": hero1.base_mana,
+                        "armor": hero1.base_armor,
+                    }
+
+                    const hero2datas = {
+                        "agilitygain": hero2.agi_gain,
+                        "strengthgain": hero2.str_gain,
+                        "intelligentgain": hero2.int_gain,
+                        "basehealthregen": hero2.base_health_regen,
+                        "basemanaregen": hero2.base_mana_regen,
+                        "baseagility": hero2.base_mana_regen,
+                        "basestrength": hero2.base_str,
+                        "baseintilligent": hero2.base_int,
+                        "basehealth": hero2.base_health,
+                        "basemana": hero2.base_mana,
+                        "armor": hero2.base_armor,
+                    }
+
+                    let vergleichsvariable = Object.keys(hero1datas)[Math.floor(Math.random() * 11)]
+
+                    //let hero2vergleichsvariable = hero2datas.indexof(vergleichsvariable)
+                    let hero2vergleichsvariable = hero2datas[vergleichsvariable]
+                    let hero1vergleichsvariable = hero1datas[vergleichsvariable]
+
+                    document.getElementById("vergleichsvariable").innerHTML = vergleichsvariable
+                    document.getElementById("hero1").innerHTML = hero1.localized_name
+                    document.getElementById("hero2").innerHTML = hero2.localized_name
+
+                    console.log(hero1.localized_name + " " + hero1vergleichsvariable)
+                    console.log(hero2.localized_name + " " + hero2vergleichsvariable)
+                    // ineraktion mit user
+                    var button1 = document.getElementById("hero1").addEventListener("click", entdscheidunghero1)
+                    var button2 = document.getElementById("hero2").addEventListener("click", entdscheidunghero2)
+
+                    //schleife zur wiederholung
+                    function entdscheidunghero1() {
+                        if (hero1vergleichsvariable >= hero2vergleichsvariable) {
+                            console.log("richtig")
+                            hauptfunction()
+                        } else {
+                            var verloren = console.log("verloren")
+                            //verloren in die Buttonsschreiben button1.parentNode.replaceChild(button1, verloren)
+                        }
+
+                    }
+
+                    function entdscheidunghero2() {
+                        if (hero2vergleichsvariable >= hero1vergleichsvariable) {
+                            console.log("richtig")
+                            hauptfunction()
+                        } else {
+                            var verloren = console.log("verloren")
+                            // verloren in die Buttonsschreiben button1.parentNode.replaceChild(button1, verloren)
+
+                        }
+
+                    }
+
+
+                    //.catch(function (error) {
+                    //console.log(error)}
                 }
 
-                const hero2datas = {
-                    "agilitygain": hero2.agi_gain,
-                    "strengthgain": hero2.str_gain,
-                    "intelligentgain": hero2.int_gain,
-                    "basehealthregen": hero2.base_health_regen,
-                    "basemanaregen": hero2.base_mana_regen,
-                    "baseagility": hero2.base_mana_regen,
-                    "basestrength": hero2.base_str,
-                    "baseintilligent": hero2.base_int,
-                    "basehealth": hero2.base_health,
-                    "basemana": hero2.base_mana,
-                    "armor": hero2.base_armor,
-                }
-            
-                let vergleichsvariable = Object.keys(hero1datas)[Math.floor(Math.random() * 11)]
-
-                //let hero2vergleichsvariable = hero2datas.indexof(vergleichsvariable)
-                let hero2vergleichsvariable= hero2datas[vergleichsvariable]
-                let hero1vergleichsvariable= hero1datas[vergleichsvariable]
-
-                document.getElementById("vergleichsvariable").innerHTML= vergleichsvariable
-                document.getElementById("hero1").innerHTML = hero1.localized_name
-                document.getElementById("hero2").innerHTML = hero2.localized_name 
-
-                console.log(hero1.localized_name+" "+ hero1vergleichsvariable)
-                console.log(hero2.localized_name+" "+ hero2vergleichsvariable)
-                // ineraktion mit user
-                var button1 = document.getElementById("hero1").addEventListener("click",entdscheidunghero1)
-                var button2 = document.getElementById("hero2").addEventListener("click",entdscheidunghero2)
-                
-                //schleife zur wiederholung
-                function entdscheidunghero1(){
-                   if(hero1vergleichsvariable >= hero2vergleichsvariable){
-                    console.log("richtig")
-                    
-                   } else {
-                       var verloren= console.log("verloren")
-                        //verloren in die Buttonsschreiben button1.parentNode.replaceChild(button1, verloren)
-                   }
-
-                }
-                function entdscheidunghero2(){
-                   if(hero2vergleichsvariable >= hero1vergleichsvariable){
-                    console.log("richtig")
-                   } else {
-                       var verloren= console.log("verloren")
-                       // verloren in die Buttonsschreiben button1.parentNode.replaceChild(button1, verloren)
-
-                   }
-
-                }
-                
-
-                //.catch(function (error) {
-                //console.log(error)}
-    }   
-    //rechener einbauen
-
-    )
+                //rechener einbauen
+            })
     </script>
 
-<h2>Wer hat die besseren Stats?</h2> 
+    <h2>Wer hat die besseren Stats?</h2>
 
-<h3>Wie Funktioniert das Spiel?</h3> 
+    <h3>Wie Funktioniert das Spiel?</h3>
 
-<p>Klicken sie einfach auf den Helden der ihres Wissens nach bessere Stats hat.</p>
+    <p>Klicken sie einfach auf den Helden der ihres Wissens nach bessere Stats hat.</p>
 
-Wer hat mehr <text id="vergleichsvariable" readonly></text>
-<p><button type="button" id="hero1"></button>
-<button type="button" id="hero2"></button></p>
+    Wer hat mehr <text id="vergleichsvariable" readonly></text>
+    <p><button type="button" id="hero1"></button>
+        <button type="button" id="hero2"></button></p>
 
 
-<p>Score: rechnereinbauen</p> 
+    <p>Score: rechnereinbauen</p>
 
-automatische erneuerung
+    automatische erneuerung
 </body>
 
 </html>

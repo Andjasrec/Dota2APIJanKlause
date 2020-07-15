@@ -65,7 +65,7 @@
         function hauptfunction() {
             axios.get("https://api.opendota.com/api/heroStats")
                 .then(function (heroesdata) {
-                    //console.log(heroesdata.data)
+                    console.log(heroesdata.data)
 
                     let hero1 = heroesdata.data[(Math.floor(Math.random() * heroesdata.data.length))]
                     let hero2 = heroesdata.data[(Math.floor(Math.random() * heroesdata.data.length))]
@@ -75,33 +75,37 @@
                     //console.log(hero2)
 
                     //angepasstes array erschaffen
-
+                    let strengthhealthregenbonus=0.09
+                    let agilityarmorgain=0.16
+                    let intelligencegain=0.05
+                    let healthmultiplier=20
+                    let inelligencemanagain=12
                     const hero1datas = {
                         "agilitygain": hero1.agi_gain,
                         "strengthgain": hero1.str_gain,
-                        "inteligentgain": hero1.int_gain,
-                        "basehealthregen": hero1.base_health_regen,
-                        "basemanaregen": hero1.base_mana_regen,
-                        "baseagility": hero1.base_mana_regen,
+                        "intelligencegain": hero1.int_gain,
+                        "basehealthregen": hero1.base_health_regen+(strengthhealthregenbonus*hero1.base_str),
+                        "basemanaregen": hero1.base_mana_regen+(intelligencegain*hero1.base_int),
+                        "baseagility": hero1.base_agi,
                         "basestrength": hero1.base_str,
-                        "baseintelligent": hero1.base_int,
-                        "basehealth": hero1.base_health,
-                        "basemana": hero1.base_mana,
-                        "armor": hero1.base_armor,
+                        "baseintelligence": hero1.base_int,
+                        "basehealth": hero1.base_health+(healthmultiplier*hero1.base_str),
+                        "basemana": hero1.base_mana+(inelligencemanagain*hero1.base_int),
+                        "armor": hero1.base_armor+(agilityarmorgain*hero1.base_agi),
                     }
 
                     const hero2datas = {
                         "agilitygain": hero2.agi_gain,
                         "strengthgain": hero2.str_gain,
-                        "intelligentgain": hero2.int_gain,
-                        "basehealthregen": hero2.base_health_regen,
-                        "basemanaregen": hero2.base_mana_regen,
-                        "baseagility": hero2.base_mana_regen,
+                        "intelligencegain": hero2.int_gain,
+                        "basehealthregen": hero2.base_health_regen+(strengthhealthregenbonus*hero2.base_str),
+                        "basemanaregen": hero2.base_mana_regen+(intelligencegain*hero2.base_int),
+                        "baseagility": hero2.base_agi,
                         "basestrength": hero2.base_str,
-                        "baseintilligent": hero2.base_int,
-                        "basehealth": hero2.base_health,
-                        "basemana": hero2.base_mana,
-                        "armor": hero2.base_armor,
+                        "baseintelligence": hero2.base_int,
+                        "basehealth": hero2.base_health+(healthmultiplier*hero2.base_str),
+                        "basemana": hero2.base_mana+(inelligencemanagain*hero2.base_int),
+                        "armor": hero2.base_armor+(agilityarmorgain*hero2.base_agi),
                     }
 
                     let vergleichsvariable = Object.keys(hero1datas)[Math.floor(Math.random() * 11)]

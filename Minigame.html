@@ -20,9 +20,10 @@
         <button type="button" id="hero2"></button></p>
 
 
-    <p>Score: rechnereinbauen</p>
-
-    automatische erneuerung
+    <p>Score: rechnereinbauen
+        Seite gestalten
+        verloren einbauen
+    </p>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -65,7 +66,7 @@
         function hauptfunction() {
             axios.get("https://api.opendota.com/api/heroStats")
                 .then(function (heroesdata) {
-                    console.log(heroesdata.data)
+                    //console.log(heroesdata.data)
 
                     let hero1 = heroesdata.data[(Math.floor(Math.random() * heroesdata.data.length))]
                     let hero2 = heroesdata.data[(Math.floor(Math.random() * heroesdata.data.length))]
@@ -123,9 +124,12 @@
 
                     //.catch(function (error) {
                     //console.log(error)}
-                    //rechener einbauen
+                    
                 })
         }
+        //rechener einbauen
+        //for(let score=0;score++){if () }
+
     </script>
 </body>
 

@@ -22,8 +22,6 @@ An diesem Punkt kommt die Userinteraktion ins Spiel, der User entdscheidet wer d
 
 ## Future Project
 Aufgaben die man noch machen kann:
-* Einen Zähler einbauen
 * Performance Updates
 * Seite schön gestalten
 * Highscoreliste
-* Verloren einbauen

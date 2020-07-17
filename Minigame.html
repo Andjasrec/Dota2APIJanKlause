@@ -6,6 +6,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -13,25 +14,29 @@
 
     <h3>Wie Funktioniert das Spiel?</h3>
 
-    <p>Klicken sie einfach auf den Helden der ihres Wissens nach bessere Stats hat.</p>
+    <p>Klicken sie einfach auf den Helden der ihres Wissens nach bessere Werte hat.</p>
 
     Wer hat mehr <text id="vergleichsvariable" readonly></text>
     <p><button type="button" id="hero1"></button>
-        <button type="button" id="hero2"></button></p>
+        <button type="button" id="hero2"></button>
+    </p>
+
+    <div id="neustart" >Verloren</div>
 
 
-    <p>Score: rechnereinbauen
+    <p><label for="score">Score</label><br>
+        <input type="number" id="score" readonly><br>
         Seite gestalten
-        verloren einbauen
     </p>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-
-
         let hero1vergleichsvariable = undefined;
         let hero2vergleichsvariable = undefined;
+        let Score= 0
+        
+        
         hauptfunction()
         //setup eventlisteners
         // ineraktion mit user
@@ -43,9 +48,12 @@
             if (hero1vergleichsvariable >= hero2vergleichsvariable) {
                 console.log("richtig")
                 hauptfunction()
+                Score++
+                document.getElementById("score").innerHTML = Score
+                console.log(Score)
             } else {
-                var verloren = console.log("verloren")
-                //verloren in die Buttonsschreiben button1.parentNode.replaceChild(button1, verloren)
+                console.log("verloren")
+                verloren()
             }
         }
 
@@ -53,11 +61,24 @@
             if (hero2vergleichsvariable >= hero1vergleichsvariable) {
                 console.log("richtig")
                 hauptfunction()
+                Score++
+                document.getElementById("score").innerHTML = Score
+                console.log(Score)
             } else {
-                var verloren = console.log("verloren")
-                // verloren in die Buttonsschreiben button1.parentNode.replaceChild(button1, verloren)
-
+                console.log("verloren")
+                verloren()
             }
+        }
+
+        function verloren() {
+
+document.getElementById("neustart").style.backgroundColor="white"
+document.getElementById("neustart").style.width="100%"
+document.getElementById("neustart").style.height="100%"
+document.getElementById("neustart").style.color="black"
+
+            document.getElementById("hero1").remove()
+            document.getElementById("hero2").remove()
         }
 
         function hauptfunction() {
@@ -73,37 +94,39 @@
                     //console.log(hero2)
 
                     //angepasstes array erschaffen
-                    let strengthhealthregenbonus=0.09
-                    let agilityarmorgain=0.16
-                    let intelligencegain=0.05
-                    let healthmultiplier=20
-                    let inelligencemanagain=12
+                    let strengthhealthregenbonus = 0.09
+                    let agilityarmorgain = 0.16
+                    let intelligencegain = 0.05
+                    let healthmultiplier = 20
+                    let inelligencemanagain = 12
                     const hero1datas = {
                         "agilitygain": hero1.agi_gain,
                         "strengthgain": hero1.str_gain,
                         "intelligencegain": hero1.int_gain,
-                        "basehealthregen": hero1.base_health_regen+(strengthhealthregenbonus*hero1.base_str),
-                        "basemanaregen": hero1.base_mana_regen+(intelligencegain*hero1.base_int),
+                        "basehealthregen": hero1.base_health_regen + (strengthhealthregenbonus * hero1
+                            .base_str),
+                        "basemanaregen": hero1.base_mana_regen + (intelligencegain * hero1.base_int),
                         "baseagility": hero1.base_agi,
                         "basestrength": hero1.base_str,
                         "baseintelligence": hero1.base_int,
-                        "basehealth": hero1.base_health+(healthmultiplier*hero1.base_str),
-                        "basemana": hero1.base_mana+(inelligencemanagain*hero1.base_int),
-                        "armor": hero1.base_armor+(agilityarmorgain*hero1.base_agi),
+                        "basehealth": hero1.base_health + (healthmultiplier * hero1.base_str),
+                        "basemana": hero1.base_mana + (inelligencemanagain * hero1.base_int),
+                        "armor": hero1.base_armor + (agilityarmorgain * hero1.base_agi),
                     }
 
                     const hero2datas = {
                         "agilitygain": hero2.agi_gain,
                         "strengthgain": hero2.str_gain,
                         "intelligencegain": hero2.int_gain,
-                        "basehealthregen": hero2.base_health_regen+(strengthhealthregenbonus*hero2.base_str),
-                        "basemanaregen": hero2.base_mana_regen+(intelligencegain*hero2.base_int),
+                        "basehealthregen": hero2.base_health_regen + (strengthhealthregenbonus * hero2
+                            .base_str),
+                        "basemanaregen": hero2.base_mana_regen + (intelligencegain * hero2.base_int),
                         "baseagility": hero2.base_agi,
                         "basestrength": hero2.base_str,
                         "baseintelligence": hero2.base_int,
-                        "basehealth": hero2.base_health+(healthmultiplier*hero2.base_str),
-                        "basemana": hero2.base_mana+(inelligencemanagain*hero2.base_int),
-                        "armor": hero2.base_armor+(agilityarmorgain*hero2.base_agi),
+                        "basehealth": hero2.base_health + (healthmultiplier * hero2.base_str),
+                        "basemana": hero2.base_mana + (inelligencemanagain * hero2.base_int),
+                        "armor": hero2.base_armor + (agilityarmorgain * hero2.base_agi),
                     }
 
                     let vergleichsvariable = Object.keys(hero1datas)[Math.floor(Math.random() * 11)]
@@ -115,18 +138,16 @@
                     document.getElementById("vergleichsvariable").innerHTML = vergleichsvariable
                     document.getElementById("hero1").innerHTML = hero1.localized_name
                     document.getElementById("hero2").innerHTML = hero2.localized_name
+                    
 
                     console.log(hero1.localized_name + " " + hero1vergleichsvariable)
                     console.log(hero2.localized_name + " " + hero2vergleichsvariable)
 
                     //.catch(function (error) {
                     //console.log(error)}
-                    
+
                 })
         }
-        //rechener einbauen
-        //for(let score=0;score++){if () }
-
     </script>
 </body>
 

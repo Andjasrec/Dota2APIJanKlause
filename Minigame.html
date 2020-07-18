@@ -27,10 +27,13 @@
 
     <div id="neustart">
         <p>Verloren <br>
-Schade geben sie nicht auf das nächste mal schaffen sie mehr als <number id="score" readonly></number>.</p> 
+Schade geben sie nicht auf das nächste mal schaffen sie mehr als <number id="score" readonly></number>.</p>
+
+<text id="vergleichsvariable" readonly></text><br>
         <text id="heldmitvariable1" readonly></text>
         <text id="heldmitvariable2" readonly></text>
-        <button id="neustart" style="border: transparent;background-color: transparent;width: 0cm; height: 0cm;"></button>
+        <br>
+        <button id="buttonneu" style="border: transparent;background-color: transparent;width: 0cm; height: 0cm; color: white;">Next Try!!!</button>
 
 
     </div>
@@ -86,6 +89,11 @@ Schade geben sie nicht auf das nächste mal schaffen sie mehr als <number id="sc
             document.getElementById("neustart").style.width = "100%"
             document.getElementById("neustart").style.height= "100%"
             document.getElementById("neustart").style.color = "white"
+            document.getElementById("buttonneu").style.width= "3cm"
+            document.getElementById("buttonneu").style.height= "1cm"
+            document.getElementById("buttonneu").style.backgroundColor= "#ea9365"
+            
+
 
             document.getElementById("hero1").remove()
             document.getElementById("hero2").remove()

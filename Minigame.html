@@ -4,39 +4,41 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>Dota 2 Game</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="dotaicon.jpg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <h2>Wer hat die besseren Stats?</h2>
+    <h2>Wer hat die besseren Werte?</h2>
 
     <h3>Wie Funktioniert das Spiel?</h3>
 
-    <p>Klicken sie einfach auf den Helden der ihres Wissens nach bessere Werte hat.</p>
+    <p style="margin-left: 18%;margin-right: 22%;">Klicken sie einfach auf den Helden der ihres Wissens nach bessere
+        Werte hat.</p>
 
-    Wer hat mehr <text id="vergleichsvariable" readonly></text>
-    <p><button type="button" id="hero1"></button>
-        <button type="button" id="hero2"></button>
+    Wer hat mehr <span class="text"><text id="vergleichsvariable" readonly></text></span>
+
+    <p><button type="button" id="hero1" class="buttonfarbe1"></button>
+        <button type="button" id="hero2" class="buttonfarbe2"></button>
     </p>
 
-    <div id="neustart" >Verloren</div>
-
+    <div id="neustart">Verloren</div>
 
     <p><label for="score">Score</label><br>
-        <input type="number" id="score" readonly><br>
-        Seite gestalten
-    </p>
+            <input type="number" id="score" readonly class="scoreeinstellungen"><br>
+        </p>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         let hero1vergleichsvariable = undefined;
         let hero2vergleichsvariable = undefined;
-        let Score= 0
-        
-        
+        let Score = 0
+
+
         hauptfunction()
         //setup eventlisteners
         // ineraktion mit user
@@ -72,10 +74,10 @@
 
         function verloren() {
 
-document.getElementById("neustart").style.backgroundColor="white"
-document.getElementById("neustart").style.width="100%"
-document.getElementById("neustart").style.height="100%"
-document.getElementById("neustart").style.color="black"
+            document.getElementById("neustart").style.backgroundColor = "white"
+            document.getElementById("neustart").style.width = "100%"
+            document.getElementById("neustart").style.height = "100%"
+            document.getElementById("neustart").style.color = "black"
 
             document.getElementById("hero1").remove()
             document.getElementById("hero2").remove()
@@ -84,7 +86,7 @@ document.getElementById("neustart").style.color="black"
         function hauptfunction() {
             axios.get("https://api.opendota.com/api/heroStats")
                 .then(function (heroesdata) {
-                    ///console.log(heroesdata.data)
+                    //console.log(heroesdata.data)
 
                     let hero1 = heroesdata.data[(Math.floor(Math.random() * heroesdata.data.length))]
                     let hero2 = heroesdata.data[(Math.floor(Math.random() * heroesdata.data.length))]
@@ -138,7 +140,7 @@ document.getElementById("neustart").style.color="black"
                     document.getElementById("vergleichsvariable").innerHTML = vergleichsvariable
                     document.getElementById("hero1").innerHTML = hero1.localized_name
                     document.getElementById("hero2").innerHTML = hero2.localized_name
-                    
+
 
                     console.log(hero1.localized_name + " " + hero1vergleichsvariable)
                     console.log(hero2.localized_name + " " + hero2vergleichsvariable)

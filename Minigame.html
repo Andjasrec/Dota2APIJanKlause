@@ -14,9 +14,9 @@
 <body>
     <h2>Wer hat die besseren Werte?</h2>
 
-    <h3>Wie Funktioniert das Spiel?</h3>
+    <h3>Wie funktioniert das Spiel?</h3>
 
-    <p style="margin-left: 18%;margin-right: 22%;">Klicken sie einfach auf den Helden der ihres Wissens nach bessere
+    <p style="margin-left: 18%;margin-right: 22%;">Klicken Sie einfach auf den Helden der ihres Wissens nach bessere
         Werte hat.</p>
 
     Wer hat mehr <span class="text"><text id="vergleichsvariable" readonly></text></span>
@@ -25,7 +25,15 @@
         <button type="button" id="hero2" class="buttonfarbe2"></button>
     </p>
 
-    <div id="neustart">Verloren</div>
+    <div id="neustart">
+        <p>Verloren <br>
+Schade geben sie nicht auf das nächste mal schaffen sie mehr als <number id="score" readonly></number>.</p> 
+        <text id="heldmitvariable1" readonly></text>
+        <text id="heldmitvariable2" readonly></text>
+        <button id="neustart" style="border: transparent;background-color: transparent;width: 0cm; height: 0cm;"></button>
+
+
+    </div>
 
     <p><label for="score">Score</label><br>
             <input type="number" id="score" readonly class="scoreeinstellungen"><br>
@@ -76,7 +84,7 @@
 
             document.getElementById("neustart").style.backgroundColor = "white"
             document.getElementById("neustart").style.width = "100%"
-            document.getElementById("neustart").style.height = "100%"
+            document.getElementById("neustart").style.height= "100%"
             document.getElementById("neustart").style.color = "black"
 
             document.getElementById("hero1").remove()
@@ -140,7 +148,8 @@
                     document.getElementById("vergleichsvariable").innerHTML = vergleichsvariable
                     document.getElementById("hero1").innerHTML = hero1.localized_name
                     document.getElementById("hero2").innerHTML = hero2.localized_name
-
+document.getElementById("heldmitvariable1").innerHTML=hero1.localized_name + " " + hero1vergleichsvariable
+document.getElementById("heldmitvariable2").innerHTML=hero2.localized_name + " " + hero2vergleichsvariable
 
                     console.log(hero1.localized_name + " " + hero1vergleichsvariable)
                     console.log(hero2.localized_name + " " + hero2vergleichsvariable)

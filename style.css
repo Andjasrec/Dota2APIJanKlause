@@ -1,4 +1,7 @@
 div{
+    background-image: url(minigame.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
     background-color: transparent; 
     width: 0%; 
     height: 0%;
@@ -6,23 +9,21 @@ div{
     top: 0;
     left:0;
     color: transparent;
+    margin: 0%;
 }
 body{
     font-family: 'Libre Baskerville', serif;
     background-color: #423f41;
     background-image: url(minigame.png);
-    background-size: 100%;
+    background-size: 101%;
     background-repeat: no-repeat;
- /*   margin-left: 20%;
+ /*  margin-left: 20%;
     margin-right: 20%;*/
     color: white;
     position: absolute;
     text-align: center;
     width: 100%;
 
-}
-background-image{
-    max-width: 100%;
 }
 
 /*h2{

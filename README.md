@@ -25,3 +25,4 @@ Aufgaben die man noch machen kann:
 * Performance Updates
 * Seite schön gestalten
 * Highscoreliste
+* Bugfixes

@@ -27,21 +27,23 @@
 
     <div id="neustart">
         <p>Verloren <br>
-            Schade geben sie nicht auf das nächste mal schaffen sie mehr als <number id="score" readonly></number>.</p>
+            Schade geben sie nicht auf das nächste mal schaffen sie mehr als <number id="scorewert" readonly></number>.</p>
 
         <text id="vergleichsvariable" readonly></text><br>
         <text id="heldmitvariable1" readonly></text>
         <text id="heldmitvariable2" readonly></text>
+
         <br>
         <button id="buttonneu"
-            style="border: transparent;background-color: transparent;width: 0cm; height: 0cm; color: white;">Next
+            style="border: transparent;background-color: transparent;width: 0cm; height: 0cm; color: transparent;">Next
             Try!!!</button>
 
 
     </div>
 
     <p><label for="score">Score</label><br>
-        <input type="number" id="score" readonly class="scoreeinstellungen"><br>
+        <span id="score" class="scoreeinstellungen">0</span>
+            <br>
     </p>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
@@ -57,14 +59,16 @@
         // ineraktion mit user
         const button1 = document.getElementById("hero1").addEventListener("click", entdscheidunghero1)
         const button2 = document.getElementById("hero2").addEventListener("click", entdscheidunghero2)
-
-        //entdscheidungsrechnung
+        document.getElementById("buttonneu").addEventListener("click",reload)
+     
+function reload(){}
+   //entdscheidungsrechnung
         function entdscheidunghero1() {
             if (hero1vergleichsvariable >= hero2vergleichsvariable) {
                 console.log("richtig")
                 hauptfunction()
                 Score++
-                document.getElementById("score").innerHTML = Score
+                document.getElementById("score").innerText = Score
                 console.log(Score)
             } else {
                 console.log("verloren")
@@ -77,7 +81,7 @@
                 console.log("richtig")
                 hauptfunction()
                 Score++
-                document.getElementById("score").innerHTML = Score
+                document.getElementById("score").innerText =Score
                 console.log(Score)
             } else {
                 console.log("verloren")
@@ -94,11 +98,13 @@
             document.getElementById("buttonneu").style.width = "3cm"
             document.getElementById("buttonneu").style.height = "1cm"
             document.getElementById("buttonneu").style.backgroundColor = "#ea9365"
-
+            document.getElementById("buttonneu").style.color="white"
+            document.getElementById("scorewert").innerHTML=Score
 
 
             document.getElementById("hero1").remove()
             document.getElementById("hero2").remove()
+
         }
         //hauptfunction für das programm heldenwahl,attributauswahl,wertauswahl,wertgegenüberstellung
         function hauptfunction() {
